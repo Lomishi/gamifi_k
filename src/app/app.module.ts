@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 // import { InicioComponent } from './inicio/inicio.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginProfesorComponent } from './login-profesor/login-profesor.component';
+
 import { RegistroAlumnoComponent } from './registro-alumno/registro-alumno.component';
 import { RegistroProfesorComponent } from './registro-profesor/registro-profesor.component';
 import { PerfilAlumnoComponent } from './perfil-alumno/perfil-alumno.component';
@@ -19,7 +19,6 @@ import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginProfesorComponent,
     RegistroAlumnoComponent,
     RegistroProfesorComponent,
     PerfilAlumnoComponent,
