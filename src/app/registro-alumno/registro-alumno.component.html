@@ -1,18 +1,24 @@
+<!-- Agregar mascota -->
+
+
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-    <a routerLink="/login" routerLinkActive="active"><h2 class="inactive underlineHover">INICIAR SESIÓN</h2></a>
-    <h2 class="active"> REGISTRO ALUMNO/A</h2>
 
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="nick" class="fadeIn second" name="nick" placeholder="Nick">
-      <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-      <input type="text" id="nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
-      <input type="text" id="apellidos" class="fadeIn second" name="apellidos" placeholder="Apellidos">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <a routerLink="/login" routerLinkActive="active">
+            <h2 class="inactive underlineHover">INICIAR SESIÓN</h2>
+        </a>
+        <h2 class="active"> REGISTRO ALUMNO/A</h2>
 
-      <input type="submit" class="fadeIn fourth" value="Registrar">
-    </form>
-  </div>
+        <!-- Login Form -->
+        <form (ngSubmit)="onSubmit()" #formAlumno="ngForm">
+            <input type="text" [(ngModel)]="alumnoModel.nick" class="fadeIn second" name="nick" placeholder="Nick">
+            <input type="email" [(ngModel)]="alumnoModel.email" class="fadeIn second" name="email" placeholder="Email">
+            <input type="password" [(ngModel)]="alumnoModel.pwd" class="fadeIn third" name="pwd" placeholder="Contraseña">
+            <input type="text" [(ngModel)]="alumnoModel.nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
+            <input type="text" [(ngModel)]="alumnoModel.apellidos" class="fadeIn second" name="apellidos" placeholder="Apellidos">
+
+            <input type="submit" class="fadeIn fourth" value="Registrar">
+        </form>
+    </div>
 </div>

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RegistroInicialComponent } from './registro-inicial/registro-inicial.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,7 +32,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
 
   ],
   providers: [],
