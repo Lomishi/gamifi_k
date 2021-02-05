@@ -7,14 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilAlumnoComponent implements OnInit {
 
-  constructor(
-  ) {
-   }
+
+  constructor() {
+
+
+  }
 
   ngOnInit(): void {
   }
 
 }
-
-
-

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import{ registro_alumno } from '../alumno';
 import{ AlumnoService } from '../alumno.service';
 import{Router} from'@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-registro-alumno',
@@ -12,21 +13,35 @@ import{Router} from'@angular/router';
 export class RegistroAlumnoComponent implements OnInit {
 
   constructor(private alumnoService: AlumnoService,
+    private snackBar : MatSnackBar,
 private Router: Router,
     ) { }
 
-  ngOnInit(): void {
+
+    hola;
+  ngOnInit() {
+    this.hola = 5;
   }
 
   alumnoModel= new registro_alumno("","","","","")
 
-onSubmit(){
-console.log(this.alumnoModel.nick);
-console.log(this.alumnoModel.email);
-console.log(this.alumnoModel.pwd);
-console.log(this.alumnoModel.nombre);
-console.log(this.alumnoModel.apellidos);
+  onSubmit(){
+    this.alumnoService.addalumno(this.alumnoModel).subscribe(
+      (value:any) => {
+        console.log("respuesta de el servidor"+value);
+
+        this.snackBar.open('profesor guardado',undefined,{
+          duration:1500,
+        });
+        this.Router.navigate(['/profesor']);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+
+    )
 
 
-}
+
+  }
 }

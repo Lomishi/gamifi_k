@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import{ registro_alumno } from './alumno';
 import { registro_profesor } from './profesor';
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfesorService {
+  baseUrl = environment.baseurl;
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 
-  addprofesor(){
-  console.log( "funcion addprofesor " );
-registro_profesor;
+  addprofesor(profesor: registro_profesor){
+  return this.http.post(`${this.baseUrl}/altaProfesor.php`,profesor)
+
 }
+
+
 }
 
 
