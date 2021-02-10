@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import{ registro_alumno } from '../alumno';
-import{ AlumnoService } from '../alumno.service';
+import{ registro_alumno } from '../../../models/alumno';
+import{ AlumnoService } from '../../../service/alumno.service';
 import{Router} from'@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
