@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'AppComponent', component: AppComponent },
   { path: 'perfil-alumno', component: PerfilAlumnoComponent },
-  { path: 'perfil-profesort', component: PerfilProfesorComponent },
+  { path: 'perfil-profesor', component: PerfilProfesorComponent },
   { path: 'registro-alumno', component: RegistroAlumnoComponent },
   { path: 'registro-profesor', component: RegistroProfesorComponent },
   { path: 'registro-inicial', component: RegistroInicialComponent },
