@@ -14,7 +14,7 @@ export class RegistroAlumnoComponent implements OnInit {
 
   constructor(private alumnoService: AlumnoService,
     private snackBar : MatSnackBar,
-private Router: Router,
+    private Router: Router,
     ) { }
 
 
@@ -38,7 +38,6 @@ private Router: Router,
       (error: any) => {
         console.log(error);
       }
-
     )
 
 
