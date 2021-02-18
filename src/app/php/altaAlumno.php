@@ -12,17 +12,17 @@ if(!$jsonAlumno){
 
 $database=require_once 'database.php';
 $sentencia = $database -> prepare("INSERT INTO registro_alumno
-VALUES (nick, email,pwd,nombre,apellidos) VALUES ('$jsonProfesor->nick',
-                                                        '$jsonAlumno->email',
-                                                        '$jsonAlumno->pwd',
-                                                        '$jsonAlumno->nombre',
-                                                        '$jsonAlumno->apellido')");
-// $resultado=$sentencia->execute([$jsonProfesor->nick,
-//                                 $jsonProfesor->email,
-//                                 $jsonProfesor->pwd,
-//                                 $jsonProfesor->nombre,
-//                                 $jsonProfesor->apellido,
-//                                 $jsonProfesor->centro]);
+VALUES (nick,email,pwd,nombre,apellidos) VALUES ('$jsonProfesor->nick',
+                                                  '$jsonAlumno->email',
+                                                  '$jsonAlumno->pwd',
+                                                  '$jsonAlumno->nombre',
+                                                  '$jsonAlumno->apellido')");
+$resultado=$sentencia->execute([$jsonProfesor->nick,
+                                $jsonProfesor->email,
+                                $jsonProfesor->pwd,
+                                $jsonProfesor->nombre,
+                                $jsonProfesor->apellido,
+                                $jsonProfesor->centro]);
 
 echo json_encode([
   "resultado"=>$resultado
