@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseurl:"http://localhost:8080/Angular-Valentin/gamifi_k/src/app/php",
+  baseurl:"http://localhost",
 };
 
 /*

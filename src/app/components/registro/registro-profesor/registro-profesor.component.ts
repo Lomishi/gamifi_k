@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import{ ProfesorService } from '../../../service/profesor.service';
 import{Router} from'@angular/router';
 
+
 @Component({
   selector: 'app-registro-profesor',
   templateUrl: './registro-profesor.component.html',
@@ -19,29 +20,41 @@ export class RegistroProfesorComponent implements OnInit {
     private snackbar: MatSnackBar,
     private router:Router,) { }
 
+    profesorModel= new registro_profesor("","","","","","");
+
   ngOnInit() {
 
   }
-  profesorModel= new registro_profesor("","","","","","")
-
-  onSubmit(){
-    this.ProfesorService.addprofesor(this.profesorModel).subscribe(
-      (value:any) => {
-        console.log("respuesta de el servidor"+value);
-
-        this.snackbar.open('profesor guardado',undefined,{
-          duration:1500,
-        });
-        this.router.navigate(['/profesor']);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-
-    )
-
-
-
+  alta(){
+    this.ProfesorService.addprofesor(this.profesorModel).subscribe( datos =>{
+      if (datos['resultado']== 'OK'){
+        alert (datos['mensaje']);
+     }
+    })
   }
 
-}
+  onFormSubmit(itemForm: any): void {
+    this.profesorModel = new registro_profesor(itemForm.controls.nick.value,
+                                              itemForm.controls.email.value,
+                                              itemForm.controls.pwd.value,
+                                              itemForm.controls.nombre.value,
+                                              itemForm.controls.apellidos.value,
+                                              itemForm.controls.centro.value
+    );
+    console.log(this.profesorModel);
+
+  //   this.ProfesorService.addprofesor(this.profesorModel).subscribe(
+
+  //     datos => {
+  //       console.log("respuesta de el servidor"+datos);
+
+  //       this.snackbar.open('profesor guardado',undefined,{
+  //         duration:1500,
+  //       });
+  //       this.router.navigate(['/profesor']);
+  //     }, (error: any) => {
+  //       console.log(error);}
+  //   )
+ }
+
+ }

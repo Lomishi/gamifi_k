@@ -7,15 +7,17 @@
     <h2 class="active"> REGISTRO PROFESOR/A</h2>
 
     <!-- Login Form -->
-    <form (ngSubmit)="onSubmit()" #formAlumno="ngForm">
-      <input type="text" [(ngModel)]="profesorModel.nick" class="fadeIn second" name="nick" placeholder="Apodo">
-      <input type="email" [(ngModel)]="profesorModel.email" class="fadeIn second" name="email" placeholder="Email">
-      <input type="password" [(ngModel)]="profesorModel.pwd" class="fadeIn third" name="pwd" placeholder="Contraseña">
-      <input type="text" [(ngModel)]="profesorModel.nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
-      <input type="text" [(ngModel)]="profesorModel.apellidos" class="fadeIn second" name="apellidos"
-        placeholder="Apellidos">
-      <input type="text" [(ngModel)]="profesorModel.centro" class="fadeIn second" name="centro" placeholder="Centro">
-      <input type="submit" class="fadeIn fourth" value="Registrar">
+      <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+      <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" ngModel required>
+      <input type="text"  class="fadeIn second" id= "email" name="email" placeholder="email" ngModel required>
+      <input type="text"  class="fadeIn second" id="pwd" name="pwd" placeholder="pwd" ngModel required>
+      <input type="text"  class="fadeIn second" id= "nombre" name="nombre" placeholder="nombre" ngModel required>
+      <input type="text"  class="fadeIn second" id= "apellidos" name="apellidos" placeholder="apellidos" ngModel required>
+      <input type="text"  class="fadeIn second" id= "centro" name="centro" placeholder="centro" ngModel required>
+      <!-- <button type="submit" class="btn btn-primary" [disabled]="itemForm.invalid">REGISTRO</button> -->
+      <p><button class="btn btn-primary" (click)="alta()">Agregar</button>
+      </p>
+      <br><br>
     </form>
   </div>
 </div>

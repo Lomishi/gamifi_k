@@ -12,7 +12,7 @@
 
  else{
    mysqli_set_charset($con,"utf8");
-   echo "Te has conectaado a la base de datos"."<br>";
+   echo "Te has conectado a la base de datos"."<br>";
  }
 
 

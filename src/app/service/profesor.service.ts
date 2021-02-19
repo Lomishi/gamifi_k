@@ -11,10 +11,8 @@ export class ProfesorService {
 
   constructor( private http: HttpClient) { }
 
-  addprofesor(profesor: registro_profesor){
-  return this.http.post(`${this.baseUrl}/altaProfesor.php`,JSON.stringify(profesor)),
-  console.log(this.http.post(`${this.baseUrl}/altaProfesor.php`,JSON.stringify(profesor)));
-
+  addprofesor(profesor){
+  return this.http.post(`${this.baseUrl}/altaProfesor.php`,JSON.stringify(profesor));
 }
 
 
