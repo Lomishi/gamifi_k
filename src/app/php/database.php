@@ -6,13 +6,14 @@
 
 
  $con=mysqli_connect($servidor,$usuario,$contrasena,$bd) or die(mysql_error());
+ if(!$con){
+   die("No se ha podido realizar la conexion".mysqli_connect_error());
+ }
 
- if (!$con){
-   die("No se ha realizado la conexion").mysqli_connect_error());
- }
  else{
-   mysql_set_charset($con, "utf8");
-   echo "Te has conectado a la BD". "<br>";
+   mysqli_set_charset($con,"utf8");
+   echo "Te has conectado a la base de datos"."<br>";
  }
+
 
 ?>
