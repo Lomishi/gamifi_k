@@ -1,20 +1,21 @@
 <div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
-        <a routerLink="/login" routerLinkActive="active">
-            <h2 class="inactive underlineHover">INICIAR SESIÓN</h2>
-        </a>
-        <h2 class="active"> REGISTRO PROFESOR/A</h2>
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <a routerLink="/login" routerLinkActive="active">
+      <h2 class="inactive underlineHover">INICIAR SESIÓN</h2>
+    </a>
+    <h2 class="active"> REGISTRO PROFESOR/A</h2>
 
-        <!-- Login Form -->
-        <form (ngSubmit)="onSubmit()" #formAlumno="ngForm">
-            <input type="text" [(ngModel)]="profesorModel.nick" class="fadeIn second" name="nick" placeholder="Apodo">
-            <input type="email" [(ngModel)]="profesorModel.email" class="fadeIn second" name="email" placeholder="Email">
-            <input type="password" [(ngModel)]="profesorModel.pwd" class="fadeIn third" name="pwd" placeholder="Contraseña">
-            <input type="text" [(ngModel)]="profesorModel.nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
-            <input type="text" [(ngModel)]="profesorModel.apellidos" class="fadeIn second" name="apellidos" placeholder="Apellidos">
-            <input type="text" [(ngModel)]="profesorModel.centro" class="fadeIn second" name="centro" placeholder="Centro">
-            <input type="submit" class="fadeIn fourth" value="Registrar">
-        </form>
-    </div>
+    <!-- Login Form -->
+    <form (ngSubmit)="onSubmit()" #formAlumno="ngForm">
+      <input type="text" [(ngModel)]="profesorModel.nick" class="fadeIn second" name="nick" placeholder="Apodo">
+      <input type="email" [(ngModel)]="profesorModel.email" class="fadeIn second" name="email" placeholder="Email">
+      <input type="password" [(ngModel)]="profesorModel.pwd" class="fadeIn third" name="pwd" placeholder="Contraseña">
+      <input type="text" [(ngModel)]="profesorModel.nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
+      <input type="text" [(ngModel)]="profesorModel.apellidos" class="fadeIn second" name="apellidos"
+        placeholder="Apellidos">
+      <input type="text" [(ngModel)]="profesorModel.centro" class="fadeIn second" name="centro" placeholder="Centro">
+      <input type="submit" class="fadeIn fourth" value="Registrar">
+    </form>
+  </div>
 </div>
