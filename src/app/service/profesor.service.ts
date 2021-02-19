@@ -7,12 +7,12 @@ import { environment } from "../../environments/environment";
   providedIn: 'root'
 })
 export class ProfesorService {
-  baseUrl = environment.baseurl;
+  baseUrl = 'http://localhost/';
 
   constructor( private http: HttpClient) { }
 
   addprofesor(profesor){
-  return this.http.post(`${this.baseUrl}/altaProfesor.php`,JSON.stringify(profesor));
+      return this.http.post(`${this.baseUrl}altaProfesor.php`, JSON.stringify(profesor));
 }
 
 

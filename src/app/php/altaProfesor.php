@@ -1,27 +1,29 @@
 <?php
-require_once 'database.php';
+ require_once 'database.php';
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
-$jsonProfesor=json_decode(file_get_contents("php://input"));
 
-
-// $sentencia ="INSERT INTO `registro_profesor`(`nick`, `email`, `pwd`, `nombre`, `apellidos`, `centro`) VALUES ('aaaawd','awd@awd.cm','awd','awd','awd','awd')";
-// $res = mysqli_query($con,$sentencia);
+$texto = file_get_contents("php://input");
+$jsonProfesor = json_decode($texto);
+echo($texto);
 
 if(!$jsonProfesor){
   exit("No hay datos");
 }
+$sql="SELECT nick from `registro_profesor` WHERE  nick='$jsonProfesor->nick'";
+$result = mysqli_query($con,$sql);
+if(!$result){
+die("no se a podido hacer el select");
+}
 
-
-  $sentencia = $database -> prepare("INSERT INTO registro_profesor
-  VALUES (nick,email,pwd,nombre,apellidos,centro) VALUES ('$jsonProfesor->nick',
+  $sentencia ="INSERT INTO `registro_profesor`(`nick`, `email`, `pwd`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
                                                     '$jsonProfesor->email',
                                                     '$jsonProfesor->pwd',
                                                     '$jsonProfesor->nombre',
-                                                    '$jsonProfesor->apellido',
-                                                    '$jsonProfesor->centro')");
+                                                    '$jsonProfesor->apellidos',
+                                                    '$jsonProfesor->centro')";
   $res = mysqli_query($con,$sentencia);
 
   if (!$res){
@@ -29,7 +31,7 @@ if(!$jsonProfesor){
 }else{
   //me lleva al login para que pruebe mi contraseña
   echo "<script>alert('Profesors creado correctamente');</script>";
-  include_once("login.php");
+  include_once("login.html");
 }
 
 // $resultado=$sentencia->execute([$jsonProfesor->nick,
@@ -39,7 +41,7 @@ if(!$jsonProfesor){
 //                                 $jsonProfesor->apellido,
 //                                 $jsonProfesor->centro]);
 
-echo json_encode($jsonProfesor);
+// echo json_encode($jsonProfesor);
 
 
 
