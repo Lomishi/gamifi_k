@@ -10,17 +10,14 @@ import { Router } from '@angular/router';
   templateUrl: './registro-profesor.component.html',
   styleUrls: ['./registro-profesor.component.css']
 })
-
-
-
-
 export class RegistroProfesorComponent implements OnInit {
 
   constructor(private ProfesorService: ProfesorService,
     private snackbar: MatSnackBar,
-    private router: Router,) { }
+    private router: Router,
+    ) { }
 
-  profesorModel = new registro_profesor("", "", "", "", "", "");
+    profesorModel = new registro_profesor("", "", "", "", "", "");
 
   ngOnInit() {
   }
@@ -37,18 +34,14 @@ export class RegistroProfesorComponent implements OnInit {
 
     this.ProfesorService.addprofesor(this.profesorModel).subscribe(
       datos => {
-        console.log(datos);
-
         if (datos['resultado'] == 'OK') {
           alert(datos['mensaje']);
         }
       }
-      // error => {
-      //   console.log("Error: " + error);
-      // }
     )
 
     console.log(this.profesorModel);
+
   }
 
 }

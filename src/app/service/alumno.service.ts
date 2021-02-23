@@ -7,13 +7,12 @@ import { environment } from "../../environments/environment";
   providedIn: 'root'
 })
 export class AlumnoService {
-baseUrl = environment.baseurl;
+  baseUrl = 'http://localhost/';
 
 constructor(private http: HttpClient) { }
 
-addalumno(alumno : registro_alumno){
-
-return this.http.post(`${this.baseUrl}/altaAlumno.php`, alumno)
+addAlumno(alumno){
+  return this.http.post(`${this.baseUrl}altaAlumno.php`, JSON.stringify(alumno));
 }
 
 }

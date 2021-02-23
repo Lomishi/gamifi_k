@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{ registro_alumno } from '../../../models/alumno';
-import{ AlumnoService } from '../../../service/alumno.service';
-import{Router} from'@angular/router';
+import { registro_alumno } from '../../../models/alumno';
+import { AlumnoService } from '../../../service/alumno.service';
+import { Router } from'@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
@@ -17,30 +17,30 @@ export class RegistroAlumnoComponent implements OnInit {
     private Router: Router,
     ) { }
 
+    alumnoModel = new registro_alumno("", "", "", "", "");
 
-    hola;
   ngOnInit() {
-    this.hola = 5;
   }
 
-  alumnoModel= new registro_alumno("","","","","")
+  onFormSubmit(itemForm: any): void {
 
-  onSubmit(){
-    this.alumnoService.addalumno(this.alumnoModel).subscribe(
-      (value:any) => {
-        console.log("respuesta de el servidor"+value);
+    this.alumnoModel = new registro_alumno(
+      itemForm.controls.nick.value,
+      itemForm.controls.email.value,
+      itemForm.controls.pwd.value,
+      itemForm.controls.nombre.value,
+      itemForm.controls.apellidos.value);
 
-        this.snackBar.open('profesor guardado',undefined,{
-          duration:1500,
-        });
-        this.Router.navigate(['/profesor']);
-      },
-      (error: any) => {
-        console.log(error);
+    this.alumnoService.addAlumno(this.alumnoModel).subscribe(
+      datos => {
+        if (datos['resultado'] == 'OK') {
+          alert(datos['mensaje']);
+        }
       }
     )
 
-
+    console.log(this.alumnoModel);
 
   }
+
 }

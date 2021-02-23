@@ -1,6 +1,3 @@
-<!-- Agregar mascota -->
-
-
 <div class="wrapper fadeInDown">
 
     <div id="formContent">
@@ -11,14 +8,13 @@
         <h2 class="active"> REGISTRO ALUMNO/A</h2>
 
         <!-- Login Form -->
-        <form (ngSubmit)="onSubmit()" #formAlumno="ngForm">
-            <input type="text" [(ngModel)]="alumnoModel.nick" class="fadeIn second" name="nick" placeholder="Nick">
-            <input type="email" [(ngModel)]="alumnoModel.email" class="fadeIn second" name="email" placeholder="Email">
-            <input type="password" [(ngModel)]="alumnoModel.pwd" class="fadeIn third" name="pwd" placeholder="Contraseña">
-            <input type="text" [(ngModel)]="alumnoModel.nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
-            <input type="text" [(ngModel)]="alumnoModel.apellidos" class="fadeIn second" name="apellidos" placeholder="Apellidos">
-
-            <input type="submit" class="fadeIn fourth" value="Registrar">
+        <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+          <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" ngModel required>
+          <input type="text"  class="fadeIn second" id= "email" name="email" placeholder="email" ngModel required>
+          <input type="text"  class="fadeIn second" id="pwd" name="pwd" placeholder="pwd" ngModel required>
+          <input type="text"  class="fadeIn second" id= "nombre" name="nombre" placeholder="nombre" ngModel required>
+          <input type="text"  class="fadeIn second" id= "apellidos" name="apellidos" placeholder="apellidos" ngModel required>
+          <input type="submit" class="fadeIn fourth" value="Agregar">
         </form>
     </div>
 </div>
