@@ -15,6 +15,7 @@ export class RegistroAlumnoComponent implements OnInit {
   constructor(private alumnoService: AlumnoService,
     private snackBar : MatSnackBar,
     private Router: Router,
+
     ) { }
 
     alumnoModel = new registro_alumno("", "", "", "", "");
@@ -38,8 +39,10 @@ export class RegistroAlumnoComponent implements OnInit {
         }
       }
     )
+    // this.Router.navigate['/login'];
+    window.location.reload()
 
-    console.log(this.alumnoModel);
+
 
   }
 

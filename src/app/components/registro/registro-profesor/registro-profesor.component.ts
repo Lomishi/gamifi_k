@@ -39,8 +39,8 @@ export class RegistroProfesorComponent implements OnInit {
         }
       }
     )
+    window.location.reload()
 
-    console.log(this.profesorModel);
 
   }
 
