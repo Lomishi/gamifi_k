@@ -26,11 +26,17 @@ export class LoginAlumnoComponent implements OnInit {
       itemForm.controls.nick.value,
       itemForm.controls.pwd.value);
 
-    this.alumnoService.addAlumno(this.alumnoModel).subscribe(
+    this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
         if (datos['result'] === 'OK') {
-          this.Router.navigate(['/perfil-alumno']);
+          console.log("caca");
 
+          this.Router.navigate(['/perfil-alumno']);
+        } else if (datos['result'] === 'ERROR1'){
+          console.log("ERROR. El usuario introducido no existe");
+        }
+        else if (datos['result'] === 'ERROR2'){
+          console.log("ERROR. Contraseña incorrecta");
         }
       }
     )

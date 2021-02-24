@@ -15,4 +15,8 @@ addAlumno(alumno){
   return this.http.post(`${this.baseUrl}altaAlumno.php`, JSON.stringify(alumno));
 }
 
+loginAlumno(alumno){
+  return this.http.post(`${this.baseUrl}loginAlumno.php`, JSON.stringify(alumno));
+}
+
 }

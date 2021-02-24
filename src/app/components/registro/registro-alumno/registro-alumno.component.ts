@@ -35,7 +35,7 @@ export class RegistroAlumnoComponent implements OnInit {
           Swal.fire({
             position: 'top',
             icon: 'success',
-            title: 'Alumno registrador.',
+            title: 'Alumno registrado.',
             showConfirmButton: false,
             timer: 1500
           })

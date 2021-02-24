@@ -36,7 +36,7 @@ export class RegistroProfesorComponent implements OnInit {
           Swal.fire({
             position: 'top',
             icon: 'success',
-            title: 'Profesor registrador.',
+            title: 'Profesor registrado.',
             showConfirmButton: false,
             timer: 1500
           })
