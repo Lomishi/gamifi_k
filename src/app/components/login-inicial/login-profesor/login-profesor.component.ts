@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from'@angular/router';
+import { Profesor } from 'src/app/models/profesor';
+import { ProfesorService } from 'src/app/service/profesor.service';
 
 @Component({
   selector: 'app-login-profesor',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginProfesorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private profesorService: ProfesorService,
+    private Router: Router,
+    ) { }
 
-  ngOnInit(): void {
+    profesorModel = new Profesor("", "");
+
+  ngOnInit() {
+  }
+
+  onFormSubmit(itemForm: any): void {
+
+    this.profesorModel = new Profesor(
+      itemForm.controls.nick.value,
+      itemForm.controls.pwd.value);
+
+    this.profesorService.addprofesor(this.profesorModel).subscribe(
+      (datos: Profesor) => {
+        if (datos['result'] === 'OK') {
+          this.Router.navigate(['/perfil-alumno']);
+
+        }
+      }
+    )
+
   }
 
 }

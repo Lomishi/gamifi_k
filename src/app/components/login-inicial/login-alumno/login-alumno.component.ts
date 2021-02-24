@@ -15,7 +15,7 @@ export class LoginAlumnoComponent implements OnInit {
     private Router: Router,
     ) { }
 
-    alumnoModel = new Alumno("", "", "", "", "");
+    alumnoModel = new Alumno("", "");
 
   ngOnInit() {
   }
@@ -24,10 +24,7 @@ export class LoginAlumnoComponent implements OnInit {
 
     this.alumnoModel = new Alumno(
       itemForm.controls.nick.value,
-      itemForm.controls.email.value,
-      itemForm.controls.pwd.value,
-      itemForm.controls.nombre.value,
-      itemForm.controls.apellidos.value);
+      itemForm.controls.pwd.value);
 
     this.alumnoService.addAlumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {

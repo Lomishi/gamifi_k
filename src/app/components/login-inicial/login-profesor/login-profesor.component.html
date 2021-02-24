@@ -8,9 +8,9 @@
 
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+    <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+      <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" ngModel required>
+      <input type="text"  class="fadeIn second" id="pwd" name="pwd" placeholder="Contraseña" ngModel required>
       <input type="submit" class="fadeIn fourth" value="Entrar">
     </form>
   </div>
