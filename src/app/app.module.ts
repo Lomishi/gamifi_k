@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
-
 import { PerfilAlumnoComponent } from './components/perfils/perfil-alumno/perfil-alumno.component';
 import { PerfilProfesorComponent } from './components/perfils/perfil-profesor/perfil-profesor.component';
 import { RegistroAlumnoComponent } from './components/registro/registro-alumno/registro-alumno.component';

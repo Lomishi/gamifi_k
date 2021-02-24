@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from'@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +12,6 @@ import Swal from 'sweetalert2';
 export class RegistroAlumnoComponent implements OnInit {
 
   constructor(private alumnoService: AlumnoService,
-    private snackBar : MatSnackBar,
     private Router: Router,
     ) { }
 

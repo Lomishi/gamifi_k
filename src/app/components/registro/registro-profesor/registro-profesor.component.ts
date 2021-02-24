@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../models/profesor';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProfesorService } from '../../../service/profesor.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -13,7 +12,6 @@ import Swal from 'sweetalert2';
 export class RegistroProfesorComponent implements OnInit {
 
   constructor(private ProfesorService: ProfesorService,
-    private snackBar: MatSnackBar,
     private Router: Router,
     ) { }
 
