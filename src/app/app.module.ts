@@ -14,6 +14,8 @@ import { PerfilProfesorComponent } from './components/perfils/perfil-profesor/pe
 import { RegistroAlumnoComponent } from './components/registro/registro-alumno/registro-alumno.component';
 import { RegistroInicialComponent } from './components/registro/registro-inicial/registro-inicial.component';
 import { RegistroProfesorComponent } from './components/registro/registro-profesor/registro-profesor.component';
+import { LoginAlumnoComponent } from './components/login/login-alumno/login-alumno.component';
+import { LoginProfesorComponent } from './components/login/login-profesor/login-profesor.component';
 
 
 
@@ -29,6 +31,8 @@ import { RegistroProfesorComponent } from './components/registro/registro-profes
     RegistroInicialComponent,
     LoginComponent,
     HeaderComponent,
+    LoginAlumnoComponent,
+    LoginProfesorComponent,
 
 
   ],

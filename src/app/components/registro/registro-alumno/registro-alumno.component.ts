@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { registro_alumno } from '../../../models/alumno';
+import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from'@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-alumno',
@@ -15,17 +15,16 @@ export class RegistroAlumnoComponent implements OnInit {
   constructor(private alumnoService: AlumnoService,
     private snackBar : MatSnackBar,
     private Router: Router,
-
     ) { }
 
-    alumnoModel = new registro_alumno("", "", "", "", "");
+    alumnoModel = new Alumno("", "", "", "", "");
 
   ngOnInit() {
   }
 
   onFormSubmit(itemForm: any): void {
 
-    this.alumnoModel = new registro_alumno(
+    this.alumnoModel = new Alumno(
       itemForm.controls.nick.value,
       itemForm.controls.email.value,
       itemForm.controls.pwd.value,
@@ -33,16 +32,20 @@ export class RegistroAlumnoComponent implements OnInit {
       itemForm.controls.apellidos.value);
 
     this.alumnoService.addAlumno(this.alumnoModel).subscribe(
-      datos => {
-        if (datos['resultado'] == 'OK') {
-          alert(datos['mensaje']);
+      (datos: Alumno) => {
+        if (datos['result'] === 'OK') {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Alumno registrador.',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.Router.navigate(['/login']);
+
         }
       }
     )
-    // this.Router.navigate['/login'];
-    window.location.reload()
-
-
 
   }
 

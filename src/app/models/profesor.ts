@@ -1,4 +1,4 @@
-export class registro_profesor {
+export class Profesor {
   constructor(
     public nick : string,
     public email : string,
