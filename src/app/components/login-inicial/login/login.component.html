@@ -10,12 +10,9 @@
     <!-- Login Form -->
     <form>
       <br>
-      <a style="margin-right: 20px; color: black;" class="nav-link btn btn-warning" routerLink="/login-profesor" routerLinkActive="active">soy <b>PROFESOR</b></a>
+      <a style="margin-right: 20px; color: black;" class="nav-link btn btn-warning" [routerLink]="['/login-profesor']" routerLinkActive="active">soy <b>PROFESOR</b></a>
       <a style="color: black;" class="nav-link btn btn-warning" [routerLink]="['/login-alumno']" routerLinkActive="active">soy <b>ALUMNO</b></a>
       <br><br><br><br><br>
-      <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-      <input type="submit" class="fadeIn fourth" value="Entrar"> -->
     </form>
   </div>
 </div>
