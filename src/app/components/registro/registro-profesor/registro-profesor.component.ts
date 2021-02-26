@@ -24,8 +24,8 @@ export class RegistroProfesorComponent implements OnInit {
 
     this.profesorModel = new Profesor(
       itemForm.controls.nick.value,
-      itemForm.controls.email.value,
       itemForm.controls.pwd.value,
+      itemForm.controls.email.value,
       itemForm.controls.nombre.value,
       itemForm.controls.apellidos.value,
       itemForm.controls.centro.value);

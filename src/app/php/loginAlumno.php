@@ -18,22 +18,23 @@ $result = mysqli_query($con, $instruccion);
 while ($fila = $result->fetch_assoc()) {
     $numero=$fila["cuantos"];
 }
-if($numero==0){
-  echo('{ "result": "ERROR1" }');
-}
-else{
-$instruccion2 = "SELECT pwd FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
-$result2 = mysqli_query($con, $instruccion2);
+  if($numero==0){
+    echo('{ "result": "ERROR1" }');
+  } else{
+      $instruccion2 = "SELECT * FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
+      $result2 = mysqli_query($con, $instruccion2);
 
-while ($fila = $result2->fetch_assoc()) {
-  $pwd2=$fila["pwd"];
-}
-if($pwd2 === $jsonAlumno->pwd){
-  echo('{ "result": "OK" }');
+      while ($fila = $result2->fetch_assoc()) {
+        $pwd2=$fila["pwd"];
+    }
 
-}
-else{
-  echo('{ "result": "ERROR2" }');
+// $datos = $result2->execute([$jsonAlumno->nick, $jsonAlumno->pwd, $jsonAlumno->email, $jsonAlumno->nombre, $jsonAlumno->apellido]);
+// echo json_encode($datos);
 
-}
+  if($pwd2 === $jsonAlumno->pwd){
+    echo('{ "result": "OK" }');
+
+  } else{
+    echo('{ "result": "ERROR2" }');
+  }
 }

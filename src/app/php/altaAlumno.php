@@ -15,9 +15,9 @@ if(!$jsonAlumno){
 $sql="SELECT nick FROM `registro_alumno` WHERE  nick='$jsonAlumno->nick'";
 $result = mysqli_query($con,$sql);
 
-  $sentencia ="INSERT INTO `registro_alumno`(`nick`, `pwd`, `email`, `nombre`, `apellidos`) VALUES ('$jsonAlumno->nick',
-                                                                                                    '$jsonAlumno->pwd',
+  $sentencia ="INSERT INTO `registro_alumno`(`nick`, `email`, `pwd`, `nombre`, `apellidos`) VALUES ('$jsonAlumno->nick',
                                                                                                     '$jsonAlumno->email',
+                                                                                                    '$jsonAlumno->pwd',
                                                                                                     '$jsonAlumno->nombre',
                                                                                                     '$jsonAlumno->apellidos')";
   if ($res = mysqli_query($con,$sentencia)) {

@@ -12,12 +12,12 @@ if(!$jsonProfesor){
   exit("No hay datos");
 }
 
-$sql="SELECT nick FROM `registro_profesor` WHERE  nick='$jsonProfesor->nick'";
-$result = mysqli_query($con,$sql);
+// $sql="SELECT nick FROM `registro_profesor` WHERE  nick='$jsonProfesor->nick'";
+// $result = mysqli_query($con,$sql);
 
-  $sentencia ="INSERT INTO `registro_profesor`(`nick`, `email`, `pwd`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
-                                                                                                                '$jsonProfesor->email',
+  $sentencia ="INSERT INTO `registro_profesor`(`nick`, `pwd`, `email`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
                                                                                                                 '$jsonProfesor->pwd',
+                                                                                                                '$jsonProfesor->email',
                                                                                                                 '$jsonProfesor->nombre',
                                                                                                                 '$jsonProfesor->apellidos',
                                                                                                                 '$jsonProfesor->centro')";

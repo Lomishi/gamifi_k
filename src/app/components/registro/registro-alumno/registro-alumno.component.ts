@@ -24,8 +24,8 @@ export class RegistroAlumnoComponent implements OnInit {
 
     this.alumnoModel = new Alumno(
       itemForm.controls.nick.value,
-      itemForm.controls.email.value,
       itemForm.controls.pwd.value,
+      itemForm.controls.email.value,
       itemForm.controls.nombre.value,
       itemForm.controls.apellidos.value);
 

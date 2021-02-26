@@ -27,17 +27,20 @@ export class LoginAlumnoComponent implements OnInit {
       itemForm.controls.nick.value,
       itemForm.controls.pwd.value);
 
+
       this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
         if (datos['result'] === 'OK') {
           Swal.fire({
             position: 'top',
             icon: 'success',
-            title: 'Bienvenido Profesor.',
+            title: 'Bienvenido Alumno.',
             showConfirmButton: false,
             timer: 1500
           })
+          console.log(this.alumnoModel);
           this.Router.navigate(['/perfil-alumno']);
+
         } else if (datos['result'] === 'ERROR1'){
           Swal.fire({
             icon: 'error',

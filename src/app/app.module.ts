@@ -16,6 +16,8 @@ import { RegistroProfesorComponent } from './components/registro/registro-profes
 import { LoginProfesorComponent } from './components/login-inicial/login-profesor/login-profesor.component';
 import { LoginAlumnoComponent } from './components/login-inicial/login-alumno/login-alumno.component';
 import { LoginComponent } from './components/login-inicial/login/login.component';
+import { ModificarAlumnoComponent } from './components/modificar perfil/modificar-alumno/modificar-alumno.component';
+import { ModificarProfesorComponent } from './components/modificar perfil/modificar-profesor/modificar-profesor.component';
 
 
 
@@ -34,6 +36,8 @@ import { LoginComponent } from './components/login-inicial/login/login.component
     HeaderComponent,
     LoginAlumnoComponent,
     LoginProfesorComponent,
+    ModificarAlumnoComponent,
+    ModificarProfesorComponent,
 
 
   ],
