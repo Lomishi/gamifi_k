@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from'@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -26,22 +27,33 @@ export class LoginAlumnoComponent implements OnInit {
       itemForm.controls.nick.value,
       itemForm.controls.pwd.value);
 
-    this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
+      this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
         if (datos['result'] === 'OK') {
-          console.log("caca");
-
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Bienvenido Profesor.',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.Router.navigate(['/perfil-alumno']);
         } else if (datos['result'] === 'ERROR1'){
-          console.log("ERROR. El usuario introducido no existe");
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El usuario introducido no existe',
+          })
         }
         else if (datos['result'] === 'ERROR2'){
-          console.log("ERROR. Contraseña incorrecta");
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Contraseña incorrecta',
+          })
         }
       }
-    )
 
-  }
+    )}
 
 }
-

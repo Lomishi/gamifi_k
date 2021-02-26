@@ -6,13 +6,13 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 $texto = file_get_contents("php://input");
-$jsonAlumno = json_decode($texto);
+$jsonProfesor = json_decode($texto);
 
-if(!$jsonAlumno){
+if(!$jsonProfesor){
   exit("No hay datos");
 }
 
-$instruccion ="SELECT count(*) AS cuantos FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
+$instruccion ="SELECT count(*) AS cuantos FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
 $result = mysqli_query($con, $instruccion);
 
 while ($fila = $result->fetch_assoc()) {
@@ -22,13 +22,13 @@ if($numero==0){
   echo('{ "result": "ERROR1" }');
 }
 else{
-$instruccion2 = "SELECT pwd FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
+$instruccion2 = "SELECT pwd FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
 $result2 = mysqli_query($con, $instruccion2);
 
 while ($fila = $result2->fetch_assoc()) {
   $pwd2=$fila["pwd"];
 }
-if($pwd2 === $jsonAlumno->pwd){
+if($pwd2 === $jsonProfesor->pwd){
   echo('{ "result": "OK" }');
 
 }

@@ -15,6 +15,10 @@ export class ProfesorService {
       return this.http.post(`${this.baseUrl}altaProfesor.php`, JSON.stringify(profesor));
 }
 
+loginProfesor(profesor){
+  return this.http.post(`${this.baseUrl}loginProfesor.php`, JSON.stringify(profesor));
+}
+
 
 }
 
