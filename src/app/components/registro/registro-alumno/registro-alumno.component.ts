@@ -42,6 +42,13 @@ export class RegistroAlumnoComponent implements OnInit {
           this.Router.navigate(['/login']);
 
         }
+        else if (datos['result'] === 'ERROR1'){
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El usuario introducido ya existe',
+          })
+        }
       }
     )
 
