@@ -40,6 +40,7 @@ import { ModificarProfesorComponent } from './components/modificar perfil/modifi
     ModificarProfesorComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
