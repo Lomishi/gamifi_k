@@ -32,11 +32,11 @@ export class LoginProfesorComponent implements OnInit {
           Swal.fire({
             position: 'top',
             icon: 'success',
-            title: 'Bienvenido Alumno.',
+            title: 'Bienvenido Profesor.',
             showConfirmButton: false,
             timer: 1500
           })
-          this.Router.navigate(['/perfil-alumno']);
+          this.Router.navigate(['/perfil-profesor']);
         } else if (datos['result'] === 'ERROR1'){
           Swal.fire({
             icon: 'error',

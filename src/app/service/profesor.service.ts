@@ -19,6 +19,10 @@ loginProfesor(profesor){
   return this.http.post(`${this.baseUrl}loginProfesor.php`, JSON.stringify(profesor));
 }
 
+modificarprofesor(profesor){
+  return this.http.post(`${this.baseUrl}modProfesor.php`, JSON.stringify(profesor));
+}
+
 
 }
 
