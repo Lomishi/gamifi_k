@@ -14,7 +14,8 @@ export class LoginAlumnoComponent implements OnInit {
 
   constructor(private alumnoService: AlumnoService,
     private Router: Router,
-    ) { }
+    )
+      {}
 
     alumnoModel = new Alumno("", "");
 
@@ -30,7 +31,7 @@ export class LoginAlumnoComponent implements OnInit {
 
       this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
-        if (datos['result'] === 'OK') {
+        if (datos!= null) {
           Swal.fire({
             position: 'top',
             icon: 'success',
@@ -39,22 +40,27 @@ export class LoginAlumnoComponent implements OnInit {
             timer: 1500
           })
           console.log(this.alumnoModel);
+          console.log('datos', datos);
           this.Router.navigate(['/perfil-alumno']);
 
-        } else if (datos['result'] === 'ERROR1'){
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'El usuario introducido no existe',
           })
         }
-        else if (datos['result'] === 'ERROR2'){
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Contraseña incorrecta',
-          })
-        }
+        // else if (datos['result'] === 'ERROR2'){
+        //   Swal.fire({
+        //     icon: 'error',
+        //     title: 'Error',
+        //     text: 'Contraseña incorrecta',
+        //   })
+        // }
+
+        console.log(datos);
+        this.alumnoService.setDatos(datos);
+
       }
 
     )}

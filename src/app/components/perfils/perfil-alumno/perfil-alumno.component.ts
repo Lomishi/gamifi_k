@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Alumno } from 'src/app/models/alumno';
+import { AlumnoService } from 'src/app/service/alumno.service';
 
 @Component({
   selector: 'app-perfil-alumno',
@@ -7,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilAlumnoComponent implements OnInit {
 
-
-  constructor() {
+  perfilAlumno: Alumno;
+  constructor(private alumnoService: AlumnoService,) {
 
 
   }
 
   ngOnInit(): void {
+    this.perfilAlumno= this.alumnoService.getDatos();
+    console.log( this.perfilAlumno);
+    console.log( this.perfilAlumno[0].nick);
   }
 
 }

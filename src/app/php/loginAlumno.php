@@ -25,16 +25,18 @@ while ($fila = $result->fetch_assoc()) {
       $result2 = mysqli_query($con, $instruccion2);
 
       while ($fila = $result2->fetch_assoc()) {
+        $datos [] =$fila;
         $pwd2=$fila["pwd"];
     }
 
 // $datos = $result2->execute([$jsonAlumno->nick, $jsonAlumno->pwd, $jsonAlumno->email, $jsonAlumno->nombre, $jsonAlumno->apellido]);
-// echo json_encode($datos);
 
   if($pwd2 === $jsonAlumno->pwd){
-    echo('{ "result": "OK" }');
+    header('Content-Type: application/json');
+    json_encode($datos);
+    echo(json_encode($datos));
 
   } else{
-    echo('{ "result": "ERROR2" }');
+    echo(json_encode($datos));
   }
 }
