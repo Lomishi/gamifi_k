@@ -24,19 +24,8 @@ modificaralumno(alumno){
   return this.http.post(`${this.baseUrl}modAlumno.php`, JSON.stringify(alumno));
 }
 
-public obtenerdatos(){
-  return new Promise(
-  resolve=>{
-    this.http.get('loginAlumno.php')
-    .subscribe(
-      datos=>resolve(datos)
-    )
-  })
-}
-
 setDatos(datos){
   this.datos= datos;
-  console.log(datos);
 }
 
 getDatos(){

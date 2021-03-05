@@ -28,7 +28,7 @@ export class LoginProfesorComponent implements OnInit {
 
     this.profesorService.loginProfesor(this.profesorModel).subscribe(
       (datos: Profesor) => {
-        if (datos['result'] === 'OK') {
+        if (datos!= null) {
           Swal.fire({
             position: 'top',
             icon: 'success',
@@ -37,20 +37,22 @@ export class LoginProfesorComponent implements OnInit {
             timer: 1500
           })
           this.Router.navigate(['/perfil-profesor']);
-        } else if (datos['result'] === 'ERROR1'){
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'El usuario introducido no existe',
           })
         }
-        else if (datos['result'] === 'ERROR2'){
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Contraseña incorrecta',
-          })
-        }
+        // else if (datos['result'] === 'ERROR2'){
+        //   Swal.fire({
+        //     icon: 'error',
+        //     title: 'Error',
+        //     text: 'Contraseña incorrecta',
+        //   })
+        // }
+
+        this.profesorService.setDatos(datos);
       }
 
     )}

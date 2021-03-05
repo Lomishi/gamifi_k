@@ -22,18 +22,20 @@ if($numero==0){
   echo('{ "result": "ERROR1" }');
 }
 else{
-$instruccion2 = "SELECT pwd FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
+$instruccion2 = "SELECT * FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
 $result2 = mysqli_query($con, $instruccion2);
 
 while ($fila = $result2->fetch_assoc()) {
+  $datos [] =$fila;
   $pwd2=$fila["pwd"];
 }
 if($pwd2 === $jsonProfesor->pwd){
-  echo('{ "result": "OK" }');
+  header('Content-Type: application/json');
+  json_encode($datos);
+  echo(json_encode($datos));
 
 }
 else{
-  echo('{ "result": "ERROR2" }');
-
+  echo(json_encode($datos));
 }
 }

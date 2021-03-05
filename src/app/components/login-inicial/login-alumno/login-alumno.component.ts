@@ -39,8 +39,6 @@ export class LoginAlumnoComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          console.log(this.alumnoModel);
-          console.log('datos', datos);
           this.Router.navigate(['/perfil-alumno']);
 
         } else {
@@ -58,7 +56,6 @@ export class LoginAlumnoComponent implements OnInit {
         //   })
         // }
 
-        console.log(datos);
         this.alumnoService.setDatos(datos);
 
       }

@@ -8,6 +8,7 @@ import { environment } from "../../environments/environment";
 })
 export class ProfesorService {
   baseUrl = 'http://localhost/';
+  datos : any;
 
   constructor( private http: HttpClient) { }
 
@@ -21,6 +22,14 @@ loginProfesor(profesor){
 
 modificarprofesor(profesor){
   return this.http.post(`${this.baseUrl}modProfesor.php`, JSON.stringify(profesor));
+}
+
+setDatos(datos){
+  this.datos= datos;
+}
+
+getDatos(){
+  return this.datos;
 }
 
 

@@ -10,7 +10,7 @@
     <!-- Login Form -->
     <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
       <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" autocomplete="off" ngModel required>
-      <input type="text"  class="fadeIn second" id="pwd" name="pwd" placeholder="Contraseña" autocomplete="off" ngModel required>
+      <input type="password"  class="fadeIn second" id="pwd" name="pwd" placeholder="Contraseña" autocomplete="off" ngModel required>
       <input type="submit" class="fadeIn fourth" value="Entrar">
     </form>
   </div>
